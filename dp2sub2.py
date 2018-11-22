@@ -19,20 +19,21 @@ def stressAmp(dia):
     return stressFail
 
 #calculates the number of required cycles    
-def cycleCalc(stressFail)
+def cycleCalc(stressFail):
     currentStress = stressFail
     cycles = 0
-    bigFile = read_data(testfile.txt) 
+    bigFile = read_data("metaldata.txt") 
     k = 6 + (math.log(10, n) ** (14/30)
     #loops through the values of the file until the stressFail is bigger than the stress-strain curve        
+    print("hello man")
     for lines in bigFile:
         cycles = cycles + 1
         #breaks if value is above curve
-        if lines[1] < stressFail 
-            break;
+        if lines[1] < currentStress: 
+            break
         #continues if value is below the curve    
         else:
-            stressFail = Stressfail * k
+            currentStress = currentStress * k
     return cycles
 
 #read the file            
@@ -44,9 +45,8 @@ def read_data(filename):
     in_file.close()
     file_list = []
     #iterate through the list of strings from the file
-    for i in lines_list:
-        line = i
-        split_str = i.split()
+    for line in lines_list:
+        split_str = line.split()
         split_float = []
         #convert each string into a float
         for var in split_str:
