@@ -46,6 +46,8 @@ def menu_func():
         if sub_choice == 1:
             import dp2sub1
         elif sub_choice == 2:
+            dia = "global"
+            dia = from dp2sub1 import sub1
             import dp2sub2
         elif sub_choice == 3:
             import dp2sub3

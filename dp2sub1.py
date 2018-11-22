@@ -50,14 +50,18 @@ def check(equation, minDiameter):
     zero = equation[0] * (minDiameter ** 3) - equation[1] * (minDiameter ** 2) - equation[2]
     return zero
 
-#main program that calls other functions and prints
+#main program that calls other functions 
 def sub1():
     #calls other functions to make calculations
     appTenStress= bodyWeight * 3.5
     a = axial(appTenStress)
     b  = bend(appTenStress)
     equation = [ultTenStrength, a, b]
-    minDiameter = calculate(equation)
+    minDia= calculate(equation)
+
+#calls sub1 and prints the required information
+def main():
+    minDiameter = sub1()
     #Prints the required information, involving the inputted data
     print("The following calculations have been made for users with the following parameters")
     print("Body Weight: ", (bodyWeight / 9.8), "kg")
@@ -66,4 +70,4 @@ def sub1():
     print(("The minimum diameter that can be used for this implant is %s mm" % (minDiameter)))
     print(("The applied tensile strength for this implant is %s MPa" % (appTenStress)))
 
-sub1()
+main()

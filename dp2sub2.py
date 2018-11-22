@@ -11,7 +11,6 @@ ultTenStrength = 45
 #modulusImplant = 3
 stemDia = 5
 width = os.get_terminal_size().columns
-dia = 2
 
 #calculates the stress amplitude
 def stressAmp(dia):
