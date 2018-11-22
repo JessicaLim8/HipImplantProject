@@ -11,22 +11,23 @@ ultTenStrength = 45
 #modulusImplant = 3
 stemDia = 5
 width = os.get_terminal_size().columns
+dia = 2
 
 #calculates the stress amplitude
 def stressAmp(dia):
     area = math.pi * ((dia / 2) ** 2)
-    stressFail = (10 * bodyWeight) / area
-    return stressFail
+    fail  = (10 * bodyWeight) / area
+    return fail
 
 #calculates the number of required cycles    
 def cycleCalc(stressFail):
     currentStress = stressFail
-    cycles = 0
-    bigFile = read_data("metaldata.txt") 
-    k = 6 + (math.log(10, n) ** (14/30)
+    cycles = -1
+    data = []
+    data = read_data("metaldata.txt") 
+    k = 6 + (math.log(10) ** (14/30))
     #loops through the values of the file until the stressFail is bigger than the stress-strain curve        
-    print("hello man")
-    for lines in bigFile:
+    for lines in data:
         cycles = cycles + 1
         #breaks if value is above curve
         if lines[1] < currentStress: 
@@ -71,4 +72,4 @@ def sub2():
     print("The implant will fail after %s cycles" % (cyclesFail))
     print("The maximum stress amplitude that corresponds to failture is ", stressFail)
 
-sub2():
+sub2()
