@@ -12,12 +12,6 @@ ultTenStrength = 45
 stemDia = 5
 width = os.get_terminal_size().columns
 
-class Colour:
-   GREEN = '\033[92m'
-   RED = '\033[91m'
-   BOLD = '\033[1m'
-   NORM = '\033[0m'
-
 #calculates the axial tension strength
 def axial(load):
    area = math.pi / 4
@@ -69,7 +63,7 @@ def sub1():
     print("Body Weight: ", (bodyWeight / 9.8), "kg")
     print("Canal diameter: ", canalDiameter, "mm") 
     print("Zercanium with a tensile strength:  ", ultTenStrength, "MPa")
-    print(("The minimum diameter that can be used for this implant is %s %smm %s " % (minDiameter * 2, Colour.BOLD, Colour.BOLD)))
-    print(("The applied tensile strength for this implant is %s %sMPa %s " % (appTenStress, Colour.BOLD, Colour.BOLD)))
+    print(("The minimum diameter that can be used for this implant is %s mm" % (minDiameter)))
+    print(("The applied tensile strength for this implant is %s MPa" % (appTenStress)))
 
 sub1()
