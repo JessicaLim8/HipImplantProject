@@ -21,7 +21,7 @@ def cycle_calc(stress_fail):
             break
         #continues if value is below the curve    
         else:
-            current_stress = current_stress * (6 + math.log10(cycles) ** (14 / 30)) 
+            current_stress = current_stress * (6 + math.log10(cycles + 1) ** (14 / 30)) 
     return cycles
 
 #read the file            

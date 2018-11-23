@@ -45,7 +45,7 @@ def minDiam_calc():
     appTen_stress = var.body_weight * 3.5
     a = axial(appTen_stress)
     b  = bend(appTen_stress)
-    equation = [var.ultTen_stength, a, b]
+    equation = [var.ultTen_strength, a, b]
     minDia = calculate(equation)
     return minDia, (a + b)
 
@@ -53,8 +53,8 @@ def minDiam_calc():
 def statement_printer(min_diameter, tens):
     #Prints the required information, involving the inputted data
     print("\tThe following calculations have been made for users with the following parameters")
-    print("\tBody Weight: ", (var.body_weight / 9.8), "kg")
+    print("\tBody Weight: ", round((var.body_weight / 9.8), 2), "kg")
     print("\tCanal diameter: ", var.canal_diameter, "mm") 
-    print("\tZercanium with a tensile strength:  ", var.ultTen_stength, "MPa")
-    print(("\tThe minimum diameter that can be used for this implant is %s mm" % (min_diameter)))
-    print(("\tThe applied tensile strength for this implant is %s MPa" % (tens)))
+    print("\tZercanium with a tensile strength:  ", var.ultTen_strength, "MPa")
+    print(("\tThe minimum diameter that can be used for this implant is %s mm" % (round(min_diameter, 2))))
+    print(("\tThe applied tensile strength for this implant is %s MPa" % (round(tens, 2))))
