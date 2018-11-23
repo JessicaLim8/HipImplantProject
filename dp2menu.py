@@ -34,11 +34,14 @@ def menu_func():
     while x == 0:
         #Accounts for user error in entering their subprogram choice
         sub_choice = error_func()
+        if sub_choice not in range(0, 5): 
+            print(f"Sorry, this program does not exist.\n\t If you would like to see the menu again, press 0")
+            continue
         if sub_choice == 1:
-            diameter = diameterCalc.minDiamCalc()
-            diameterCalc.statementPrinter(diameter)
+            diameter, appTens = diameterCalc.minDiamCalc()
+            diameterCalc.statementPrinter(diameter, appTens)
         elif sub_choice == 2:
-            diameter = diameterCalc.minDiamCalc()
+            diameter, appTens = diameterCalc.minDiamCalc()
             amp, cycles = stresslifeCalc.returnCalculations(diameter)
             print("\t The implant will fail after %s cycles" % (cycles))
             print("\t The maximum stress amplitude that corresponds to failture is ", amp)
@@ -49,8 +52,8 @@ def menu_func():
             break
         elif sub_choice == 0:
             main_menu()
-        else:
-            print(f"Sorry, this program does not exist.\n\t If you would like to see the menu again, press 0")
+        print("We hope this information was helpful!\n\t If you would like to see the menu again, press 0")
+
 
 main_menu()
 menu_func()
