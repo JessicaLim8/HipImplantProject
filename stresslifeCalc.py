@@ -21,8 +21,12 @@ def cycle_calc(stress_fail):
             break
         #continues if value is below the curve    
         else:
-            current_stress = current_stress * (6 + math.log10(cycles + 1) ** (14 / 30)) 
-    return cycles
+            if cycles == 0:
+               k = 1
+            else:
+                k = 6 + math.log10(cycles) ** (14/30)
+            current_stress = current_stress * k
+    return cycles, current_stress
 
 #read the file            
 def read_data(filename):
@@ -53,8 +57,8 @@ def read_lines(filename):
     
     #main function, calls other functions and prints the calculated values
 def return_calculations(dia):
-    stress_fail = stress_amp(dia)
-    cycles_fail = cycle_calc(stress_fail)
+    init_fail= stress_amp(dia)
+    cycles_fail, stress_fail = cycle_calc(init_fail)
     #prints calculated values
     #print("The implant will fail after %s cycles" % (cycles_fail))
     #print("The maximum stress amplitude that corresponds to failture is ", stress_fail)
