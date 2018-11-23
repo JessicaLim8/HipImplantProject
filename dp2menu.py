@@ -5,14 +5,15 @@ Objective: DP2 Program Menu
 import math
 import diameterCalc 
 import stresslifeCalc 
+import yearStress
 import var
 
 def main_menu():
     #Home menu setup:
     print("  Program Menu: ")
-    print("\t1. Subprogram 1")
-    print("\t2. Subprogram 2")
-    print("\t3. Subprogram 3")
+    print("\t1. Subprogram 1 - Minimum allowable Diameter of Implant")
+    print("\t2. Subprogram 2 - Cycle Life of Implant")
+    print("\t3. Subprogram 3 - Lifetime before Failure")
     print("\t4. Exit the Program")
 
 #error checking function
@@ -39,10 +40,10 @@ def menu_func():
         elif sub_choice == 2:
             diameter = diameterCalc.minDiamCalc()
             amp, cycles = stresslifeCalc.returnCalculations(diameter)
-            print(f "\t The implant will fail after %s cycles" % (cycles))
-            print(f "\t The maximum stress amplitude that corresponds to failture is ", amp)
+            print("\t The implant will fail after %s cycles" % (cycles))
+            print("\t The maximum stress amplitude that corresponds to failture is ", amp)
         elif sub_choice == 3:
-            print("hey this is p3")
+            yearStress.failureCalc()
         elif sub_choice == 4:
             print("Thank you for using our stress analysis program, goodbye.")
             break
