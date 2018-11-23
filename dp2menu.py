@@ -38,22 +38,21 @@ def menu_func():
             print(f"Sorry, this program does not exist.\n\t If you would like to see the menu again, press 0")
             continue
         if sub_choice == 1:
-            diameter, appTens = diameterCalc.minDiamCalc()
-            diameterCalc.statementPrinter(diameter, appTens)
+            diameter, app_tens = diameterCalc.minDiam_calc()
+            diameterCalc.statement_printer(diameter, app_tens)
         elif sub_choice == 2:
-            diameter, appTens = diameterCalc.minDiamCalc()
-            amp, cycles = stresslifeCalc.returnCalculations(diameter)
+            diameter, app_tens = diameterCalc.minDiam_calc()
+            amp, cycles = stresslifeCalc.return_calculations(diameter)
             print("\t The implant will fail after %s cycles" % (cycles))
             print("\t The maximum stress amplitude that corresponds to failture is ", amp)
         elif sub_choice == 3:
-            yearStress.failureCalc()
+            yearStress.failure_calc()
         elif sub_choice == 4:
             print("Thank you for using our stress analysis program, goodbye.")
             break
         elif sub_choice == 0:
             main_menu()
         print("We hope this information was helpful!\n\t If you would like to see the menu again, press 0")
-
 
 main_menu()
 menu_func()
