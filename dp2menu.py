@@ -22,7 +22,8 @@ def error_func():
     while x == 0:
         #loop through
         try:
-            sub_choice = int(input("Select the subprogram you would like to run: "))
+            sub_choice = int(input(" Select the subprogram you would like to run: "))
+            print("") #add empty line for formatting
             break
         except ValueError:
             print("You have entered an invalid input, please try again.\n\t If you would like to see the menu again, press 0 ")
@@ -52,7 +53,7 @@ def menu_func():
             break
         elif sub_choice == 0:
             main_menu()
-        print("We hope this information was helpful!\n\t If you would like to see the menu again, press 0")
+        print("\nWe hope this information was helpful!\n\t If you would like to see the menu again, press 0")
 
 main_menu()
 menu_func()
