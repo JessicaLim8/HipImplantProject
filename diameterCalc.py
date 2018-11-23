@@ -52,9 +52,9 @@ def minDiamCalc():
 #calls sub1 and prints the required information
 def statementPrinter(minDiameter):
     #Prints the required information, involving the inputted data
-    print("The following calculations have been made for users with the following parameters")
-    print("Body Weight: ", (var.bodyWeight / 9.8), "kg")
-    print("Canal diameter: ", var.canalDiameter, "mm") 
-    print("Zercanium with a tensile strength:  ", var.ultTenStrength, "MPa")
-    print(("The minimum diameter that can be used for this implant is %s mm" % (minDiameter)))
-    print(("The applied tensile strength for this implant is %s MPa" % (var.bodyWeight * 3.5)))
+    print("\tThe following calculations have been made for users with the following parameters")
+    print("\tBody Weight: ", (var.bodyWeight / 9.8), "kg")
+    print("\tCanal diameter: ", var.canalDiameter, "mm") 
+    print("\tZercanium with a tensile strength:  ", var.ultTenStrength, "MPa")
+    print(("\tThe minimum diameter that can be used for this implant is %s mm" % (minDiameter)))
+    print(("\tThe applied tensile strength for this implant is %s MPa" % (var.bodyWeight * 3.5)))
