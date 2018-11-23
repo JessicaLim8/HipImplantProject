@@ -1,4 +1,5 @@
 import math
+import var
 
 #calculates the axial tension strength
 def axial(load):
@@ -8,7 +9,7 @@ def axial(load):
 
 #calculates the bending compression strength
 def bend(load):
-    bending = (load * canalOffset * 32) / math.pi
+    bending = (load * var.canalOffset * 32) / math.pi
     return bending
 
 #Performs a loop that will iterate through values until a root is found (the root is the value of the diameter)
@@ -41,19 +42,19 @@ def check(equation, minDiameter):
 #main program that calls other functions 
 def minDiamCalc():
     #calls other functions to make calculations
-    appTenStress= bodyWeight * 3.5
+    appTenStress = var.bodyWeight * 3.5
     a = axial(appTenStress)
     b  = bend(appTenStress)
-    equation = [ultTenStrength, a, b]
-    minDia= calculate(equation)
+    equation = [var.ultTenStrength, a, b]
+    minDia = calculate(equation)
     return minDia
 
 #calls sub1 and prints the required information
 def statementPrinter(minDiameter):
     #Prints the required information, involving the inputted data
     print("The following calculations have been made for users with the following parameters")
-    print("Body Weight: ", (bodyWeight / 9.8), "kg")
-    print("Canal diameter: ", canalDiameter, "mm") 
-    print("Zercanium with a tensile strength:  ", ultTenStrength, "MPa")
+    print("Body Weight: ", (var.bodyWeight / 9.8), "kg")
+    print("Canal diameter: ", var.canalDiameter, "mm") 
+    print("Zercanium with a tensile strength:  ", var.ultTenStrength, "MPa")
     print(("The minimum diameter that can be used for this implant is %s mm" % (minDiameter)))
-    print(("The applied tensile strength for this implant is %s MPa" % (bodyWeight * 3.5)))
+    print(("The applied tensile strength for this implant is %s MPa" % (var.bodyWeight * 3.5)))

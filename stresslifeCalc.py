@@ -4,7 +4,7 @@ import var
 #calculates the stress amplitude
 def stressAmp(dia):
     area = math.pi * ((dia / 2) ** 2)
-    fail  = (10 * bodyWeight) / area
+    fail  = (10 * var.bodyWeight) / area
     return fail
 
 #calculates the number of required cycles    
