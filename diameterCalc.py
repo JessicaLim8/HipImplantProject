@@ -18,7 +18,7 @@ def calculate(equation):
     min_diameter = 5
     zero = 10
     #loops until the value of the funcion using the chosen root is close enough to zero)
-    while (zero > 0.001):
+    while (zero > 0.00001):
        # recalculates the value of diameter 
        min_diameter =  newtons(equation, min_diameter)
        #checks to see what the value of the function is with the new diameter
@@ -55,6 +55,6 @@ def statement_printer(min_diameter, tens):
     #Prints the required information, involving the inputted data
     print("\tThe following calculations have been made for users with the following parameters")
     print(("\tBody Weight: %s kg\t\tCanal Diameter: %s mm\t\tZercanium tensile Strength %s MPa " % (round((var.body_weight / 9.8), 2), var.canal_diameter, var.ultTen_strength)))
-    print(("\tThe minimum diameter that can be used for this implant is %s mm" % (round(min_diameter, 2))))
-    print(("\tThe applied tensile strength for this implant is %s MPa" % (round(tens, 2))))
+    print(("\tThe minimum diameter that can be used for this implant is %s mm" % (round(min_diameter, 4))))
+    print(("\tThe applied tensile strength for this implant is %s MPa" % (round(tens, 4))))
 
