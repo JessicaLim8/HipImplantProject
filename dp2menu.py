@@ -43,9 +43,12 @@ def menu_func():
             diameterCalc.statement_printer(diameter, app_tens)
         elif sub_choice == 2:
             diameter, app_tens = diameterCalc.minDiam_calc()
-            amp, cycles = stresslifeCalc.return_calculations(diameter)
-            print("\t The implant will fail after %s cycles" % (round(cycles, 2)))
-            print("\t The maximum stress amplitude that corresponds to failture is ", round(amp, 2))
+            amp, cycles, fails = stresslifeCalc.return_calculations(diameter)
+            if fails== False:
+                print("\t The implant never fails")
+            else:
+                print("\t The implant will fail after %s cycles" % (round(cycles, 2)))
+                print("\t The maximum stress amplitude that corresponds to failture is ", round(amp, 2))
         elif sub_choice == 3:
             yearStress.failure_calc()
         elif sub_choice == 4:
