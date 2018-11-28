@@ -10,23 +10,25 @@ def stress_amp(dia):
 #calculates the number of required cycles    
 def cycle_calc(stress_fail):
     current_stress = stress_fail
-    cycles = -1
+    cycles_num = 0
+    if_fails = False 
     data = []
     data = read_data("metaldata.txt") 
     #loops through the values of the file until the stress_fail is bigger than the stress-strain curve        
-    for lines in data:
-        cycles = cycles + 1
-        #breaks if value is above curve
-        if lines[1] < current_stress: 
-            break
-        #continues if value is below the curve    
-        else:
-            if cycles == 0:
-               k = 1
-            else:
-                k = 6 + math.log10(cycles) ** (14/30)
-            current_stress = current_stress * k
-    return cycles, current_stress
+    #if current_stress > data[0][0]
+    if current_stress < (data[0][0]):
+        for lines in data:
+            # calculates the k constant
+            k = 6 + math.log10(lines[1]) ** (14/30)
+            #multiplies the stress by the constant    
+            current_stress = stress_fail * k
+            #breaks if value is above curve
+            cycles_num = lines[1]
+            if lines[0] < current_stress: 
+                if_fails = True
+                break
+            #continues if value is below the curve    
+    return current_stress, cycles_num,  if_fails
 
 #read the file            
 def read_data(filename):
@@ -58,8 +60,5 @@ def read_lines(filename):
     #main function, calls other functions and prints the calculated values
 def return_calculations(dia):
     init_fail= stress_amp(dia)
-    cycles_fail, stress_fail = cycle_calc(init_fail)
-    #prints calculated values
-    #print("The implant will fail after %s cycles" % (cycles_fail))
-    #print("The maximum stress amplitude that corresponds to failture is ", stress_fail)
-    return stress_fail, cycles_fail
+    cycles_fail, stress_fail, if_fails = cycle_calc(init_fail)
+    return stress_fail, cycles_fail, if_fails
