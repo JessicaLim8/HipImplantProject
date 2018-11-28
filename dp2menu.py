@@ -44,7 +44,7 @@ def menu_func():
         elif sub_choice == 2:
             diameter, app_tens = diameterCalc.minDiam_calc()
             amp, cycles, fails = stresslifeCalc.return_calculations(diameter)
-            if fails== False:
+            if not fails:
                 print("\t The implant never fails")
             else:
                 print("\t The implant will fail after %s cycles" % (round(cycles, 2)))
