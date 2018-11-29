@@ -1,7 +1,7 @@
 import math
 import var
 
-area_bone = (math.pi * (var.canal_diameter/2)**2)
+area_bone = (math.pi/4) * ((var.outer_dia ** 2) - (var.canal_diameter ** 2))
 e_ratio = math.sqrt((var.modulus_implant/var.modulus_bone))
 
 def failure_calc():
