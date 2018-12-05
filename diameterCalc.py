@@ -27,14 +27,14 @@ def calculate(equation):
 
 #uses newton's nethod to determine the x intercept, which is equivallent to the radius of the bone
 def newtons(equation, min_diameter):
-    # calculates the value of the function and the deriviative of the function, with the current diameter being evaluates
+    # calculates the value of the function and the deriviative of the function, with the current diameter being evaluated
     function = equation[0] * (min_diameter ** 3) - equation[1] * (min_diameter)  - equation[2]
     deriviative = equation[0] * 3  * (min_diameter ** 2) - equation[1]
-    # evaluates x1 = x0 - f(x) / f'(x)
+    # evaluates x1 = x0 - f(x) / f'(x) (i.e. Newton's method) to find new diameter
     min_diameter = min_diameter - (function / deriviative)
     return min_diameter
 
-#calculates the value of the value of the function with the newly calculated minimum diameter
+#calculates the value of the function with the newly calculated minimum diameter plugged in
 def check(equation, min_diameter):
     zero = equation[0] * (min_diameter ** 3) - equation[1] * (min_diameter) - equation[2]
     return zero
@@ -45,8 +45,11 @@ def minDiam_calc():
     load = var.body_weight * 3.5
     a = axial(load)
     b  = bend(load)
+    #uses the calculated values to create a list that can be used as the constants in the equations calulcated subsequently
     equation = [var.ultTen_strength, a, b]
+    #calls the calculate function to determine the minimum diameter
     min_dia = calculate(equation)
+    #calculates the applied tension stress that is applied using the minimum diameter
     app_tens = a / (min_dia ** 2) + b / (min_dia ** 3)
     return min_dia, app_tens
 
