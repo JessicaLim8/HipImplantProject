@@ -12,7 +12,7 @@ def main_menu():
     #Home menu setup:
     print("  Program Menu: ")
     print("\t1. Subprogram 1 - Minimum allowable Diameter of Implant")
-    print("\t2. Subprogram 2 - Cycle Life of Implant")
+    print("\t2. Subprogram 12 - Cycle Life of Implant")
     print("\t3. Subprogram 3 - Lifetime before Failure")
     print("\t4. Exit the Program")
 
